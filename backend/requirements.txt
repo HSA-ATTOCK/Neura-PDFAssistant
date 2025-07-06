@@ -1,0 +1,6 @@
+flask
+flask-cors
+PyPDF2
+faiss-cpu
+sentence-transformers
+google-generativeai
