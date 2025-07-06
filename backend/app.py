@@ -15,7 +15,12 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://pdfasistant.vercel.app"])
+
+@app.route('/')
+def index():
+    return "✅ PDF Assistant Backend is running!"
+
 
 assistant_state = {}
 
