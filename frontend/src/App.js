@@ -29,7 +29,11 @@ function App() {
 
     try {
       setLoading((prev) => ({ ...prev, upload: true }));
-      await axios.post("http://localhost:5000/upload", formData);
+      await axios.post(
+        "https://pdf-backend-wgu8.onrender.com/upload",
+        formData
+      );
+
       setPdfUploaded(true);
       addMessage("PDF uploaded and ready for questions!", "system");
     } catch (err) {
