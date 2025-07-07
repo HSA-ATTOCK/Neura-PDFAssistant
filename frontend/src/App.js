@@ -180,7 +180,7 @@ function App() {
                       {msg.type === "user"
                         ? "You"
                         : msg.type === "ai"
-                        ? "AI Assistant"
+                        ? "Neura"
                         : "System"}
                     </span>
                   </div>
@@ -191,7 +191,7 @@ function App() {
                 <div className="message ai thinking">
                   <div className="message-header">
                     <BsRobot className="icon" />
-                    <span className="sender">HSA</span>
+                    <span className="sender">Neura</span>
                   </div>
                   <div className="message-content">
                     <div className="typing-indicator">
