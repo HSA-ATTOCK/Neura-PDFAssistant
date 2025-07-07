@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# 🧠 Neura: PDF Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Neura PDF Assistant is an intelligent web tool that allows users to **upload PDF files and ask questions** based on the document content. Powered by **Gemini AI (Google Generative AI)**, it extracts information from PDFs and returns highly relevant, context-aware answers.
 
-## Available Scripts
+> 🔗 Live Demo: [https://neura-pdfassistant.haidersajjad.site](https://neura-pdfassistant.haidersajjad.site)  
+> ⚙️ Backend API: [https://haidersajjad-pdf-assistant-backend.hf.space](https://haidersajjad-pdf-assistant-backend.hf.space)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 📄 Upload any PDF file
+- ❓ Ask natural language questions
+- 🤖 Answers generated using Google Gemini (Gemini 1.5 Flash)
+- 🧠 Embedding + semantic search using Sentence Transformers + FAISS
+- 🔁 Real-time response via connected backend
+- 🌐 Fully deployed:
+  - Frontend: **React on Vercel**
+  - Backend: **Flask API on Hugging Face Spaces**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend:** React + Vercel
+- **Backend:** Python + Flask + Hugging Face Spaces
+- **AI Model:** `gemini-1.5-flash` via `google.generativeai`
+- **Embeddings:** SentenceTransformer (`all-MiniLM-L6-v2`)
+- **Similarity Search:** FAISS
+- **PDF Parsing:** PyPDF2
+- **Environment Handling:** `python-dotenv`
+- **CORS:** flask-cors
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📸 Preview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Neura PDF Assistant Screenshot](preview.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧪 How It Works
 
-### `npm run eject`
+1. **Upload PDF**
+2. Text is extracted and split into chunks
+3. Chunks are embedded using SentenceTransformer
+4. FAISS builds a searchable vector index
+5. User asks a question → most relevant chunks are retrieved
+6. Context is sent to Gemini AI → response is returned to user
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📂 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+neura: pdf assistant/
+├── backend/			# Back-end created by using python deployed on Hugging face
+│   ├── app.py                # Flask backend API
+│   ├── requirements.txt      # Python dependencies
+│   ├── space.yaml            # Hugging Face Spaces config
+│   ├── .env                  # API key (not included in repo)
+│   ├── Dockerfile
+│   ├── test.pdf		# Text based pdf file for testing
+│   └── static/               # Optional frontend root file (for HF serving)
+└── frontend/			# Frontend created by using react deployed on vercel
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+````
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📦 Installation (Local Testing)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/your-username/neura-pdf-assistant.git
+cd neura-pdf-assistant
 
-### Code Splitting
+# Install dependencies
+pip install -r requirements.txt
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Add your API key
+echo "GOOGLE_API_KEY=your_api_key_here" > .env
 
-### Analyzing the Bundle Size
+# Run the app
+python app.py
+````
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+App will be available at `http://localhost:7860`
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🌍 Deployment
 
-### Advanced Configuration
+### ✅ Backend on Hugging Face
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Uses `space.yaml` and `Dockerfile` to deploy Flask API
+* Access the live backend at:
+  `https://haidersajjad-pdf-assistant-backend.hf.space`
 
-### Deployment
+### ✅ Frontend on Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Deployed separately with CORS enabled
+* Uses: `https://neura-pdfassistant.haidersajjad.site`
+* Communicates with Hugging Face backend
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔐 Environment Variables
+
+Create a `.env` file with:
+
+```
+GOOGLE_API_KEY=your_gemini_api_key
+```
+
+This is automatically loaded using `python-dotenv`.
+
+---
+
+## 🧠 About the Name: Neura
+
+“**Neura**” is a future-focused brand name for a series of intelligent assistants. This PDF assistant is just the beginning — more tools like `Neura Chat`, `Neura Resume`, and `Neura Code` are planned.
+
+---
+
+## 📬 Contact
+
+Made by [Haider Sajjad](https://haidersajjad.site)
+🔗 Portfolio: [haidersajjad.site](https://haidersajjad.site)
+
+---
+
+## 📜 License
+
+This project is open-source under the [MIT License](LICENSE).
+
+```
