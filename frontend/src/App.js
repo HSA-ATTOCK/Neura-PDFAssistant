@@ -29,7 +29,7 @@ function App() {
 
     try {
       setLoading((prev) => ({ ...prev, upload: true }));
-      await axios.post("http://127.0.0.1:5000/upload", formData);
+      await axios.post("https://pdf-assistant.hf.space/upload", formData);
       setPdfUploaded(true);
       addMessage("PDF uploaded and ready for questions!", "system");
     } catch (err) {
@@ -48,7 +48,7 @@ function App() {
     setLoading((prev) => ({ ...prev, question: true }));
 
     try {
-      const res = await axios.post("http://127.0.0.1:5000/ask", { question });
+      const res = await axios.post("https://pdf-assistant.hf.space/ask", { question });
       const aiMessage = { type: "ai", text: res.data.answer };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {
