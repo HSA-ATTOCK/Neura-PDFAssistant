@@ -103,7 +103,7 @@ function App() {
       <div className="app-header">
         <div className="logo">
           <BsRobot className="robot-icon" />
-          <h1>PDF AI Assistant</h1>
+          <h1>Neura: PDF Assistant</h1>
         </div>
         <p className="subtitle">
           Upload a PDF and ask anything about its content
