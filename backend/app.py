@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import io
@@ -19,8 +19,14 @@ CORS(app, origins=["https://pdfasistant.vercel.app"])
 
 @app.route('/')
 def index():
-    return "✅ PDF Assistant Backend is running!"
-
+    return jsonify({
+        'message': 'PDF Assistant Backend API',
+        'status': 'running',
+        'endpoints': {
+            'upload': '/upload (POST)',
+            'ask': '/ask (POST)'
+        }
+    })
 
 assistant_state = {}
 
@@ -99,4 +105,4 @@ def ask_question():
     return jsonify({'answer': answer})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=7860)
