@@ -132,5 +132,3 @@ Made by [Haider Sajjad](https://haidersajjad.site)
 ## 📜 License
 
 This project is open-source under the [MIT License](LICENSE).
-
-```
