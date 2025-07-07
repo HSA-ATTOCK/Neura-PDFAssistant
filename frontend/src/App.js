@@ -29,7 +29,7 @@ function App() {
 
     try {
       setLoading((prev) => ({ ...prev, upload: true }));
-      await axios.post("https://pdfasistantbackend.hf.space/upload", formData);
+      await axios.post("https://pdf-assistant-backend.hf.space/upload", formData);
       setPdfUploaded(true);
       addMessage("PDF uploaded and ready for questions!", "system");
     } catch (err) {
@@ -48,7 +48,7 @@ function App() {
     setLoading((prev) => ({ ...prev, question: true }));
 
     try {
-      const res = await axios.post("https://pdfasistantbackend.hf.space/ask", { question });
+      const res = await axios.post("https://pdf-assistant-backend.hf.space/ask", { question });
       const aiMessage = { type: "ai", text: res.data.answer };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {
