@@ -29,7 +29,7 @@ function App() {
 
     try {
       setLoading((prev) => ({ ...prev, upload: true }));
-      await axios.post("http://localhost:5000/upload", formData);
+      await axios.post("https://haidersajjad-pdf-assistant-backend.hf.space/upload", formData);
       setPdfUploaded(true);
       addMessage("PDF uploaded and ready for questions!", "system");
     } catch (err) {
@@ -48,7 +48,7 @@ function App() {
     setLoading((prev) => ({ ...prev, question: true }));
 
     try {
-      const res = await axios.post("http://localhost:5000/ask", { question });
+      const res = await axios.post("https://haidersajjad-pdf-assistant-backend.hf.space/ask", { question });
       const aiMessage = { type: "ai", text: res.data.answer };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {
@@ -103,7 +103,7 @@ function App() {
       <div className="app-header">
         <div className="logo">
           <BsRobot className="robot-icon" />
-          <h1>PDF AI Assistant</h1>
+          <h1>Neura: PDF Assistant</h1>
         </div>
         <p className="subtitle">
           Upload a PDF and ask anything about its content
@@ -180,7 +180,7 @@ function App() {
                       {msg.type === "user"
                         ? "You"
                         : msg.type === "ai"
-                        ? "AI Assistant"
+                        ? "Neura"
                         : "System"}
                     </span>
                   </div>
@@ -191,7 +191,7 @@ function App() {
                 <div className="message ai thinking">
                   <div className="message-header">
                     <BsRobot className="icon" />
-                    <span className="sender">AI Assistant</span>
+                    <span className="sender">Neura</span>
                   </div>
                   <div className="message-content">
                     <div className="typing-indicator">
