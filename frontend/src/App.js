@@ -191,7 +191,7 @@ function App() {
                 <div className="message ai thinking">
                   <div className="message-header">
                     <BsRobot className="icon" />
-                    <span className="sender">AI Assistant</span>
+                    <span className="sender">HSA</span>
                   </div>
                   <div className="message-content">
                     <div className="typing-indicator">
