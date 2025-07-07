@@ -52,15 +52,15 @@ Neura PDF Assistant is an intelligent web tool that allows users to **upload PDF
 
 ```
 Neura-PdfAssistant/
-├── backend/               # Back-end created by using python deployed on Hugging face
+├── backend/                  # Back-end created by using python deployed on Hugging face
 │   ├── app.py                # Flask backend API
 │   ├── requirements.txt      # Python dependencies
 │   ├── space.yaml            # Hugging Face Spaces config
 │   ├── .env                  # API key (not included in repo)
 │   ├── Dockerfile
-│   ├── test.pdf		       # Text based pdf file for testing
+│   ├── test.pdf              # Text based pdf file for testing
 │   └── static/               # Optional frontend root file (for HF serving)
-├── frontend/			         # Frontend created by using react deployed on vercel
+├── frontend/                 # Frontend created by using react deployed on vercel
 ├── preview.png               # Preview of https://neura-pdfassistant.haidersajjad.site
 └── README.md
 
