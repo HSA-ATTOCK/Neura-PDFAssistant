@@ -3,8 +3,7 @@
 Neura PDF Assistant is an intelligent web tool that allows users to **upload PDF files and ask questions** based on the document content. Powered by **Gemini AI (Google Generative AI)**, it extracts information from PDFs and returns highly relevant, context-aware answers.
 
 > 🔗 Live Demo: [https://neura-pdfassistant.haidersajjad.site](https://neura-pdfassistant.haidersajjad.site)  
-> ⚙️ Backend API: [https://haidersajjad-pdf-assistant-backend.hf.space](https://haidersajjad-pdf-assistant-backend.hf.space)
-
+> ⚙️ Backend API: 
 ---
 
 ## 🚀 Features
